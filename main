@@ -1,0 +1,43 @@
+local background = display.newImageRect( "Sky.jpg", 3200, 3200 )
+background.x = display.contectCenterX
+background.y = 1600
+background.id = "Sky" 
+
+
+
+local NewNumberText = native.newTextField( display.contentCenterX, display.contentCenterY + 50, 700, 100 )
+NewNumberText.id = "NewNumberText"
+
+
+
+local myText = display.newText( "Enter Intger!", 700, 500, native.systemFont, 100 )
+myText:setFillColor( 1, 0, 0 )
+
+
+local output = display.newText( " " , 400, 300, native.systemFont, 200)
+output.id = "correct"
+output:setFillColor( 0, 0, 255)
+
+
+local Button = display.newImageRect( "BUTTA.png", 700, 600 )
+Button.x = display.contentCenterX
+Button.y = 1600
+Button.id = "Button" 
+
+
+
+
+local function ButtonTouch( event )
+
+	local answer = tonumber(NewNumberText.text)
+
+	if answer <0 then 
+		output.text = "Negative"
+	else
+		output.text = "Positive"
+	end
+end
+
+
+
+Button:addEventListener( 'touch' , ButtonTouch)
